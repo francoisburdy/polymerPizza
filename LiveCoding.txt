@@ -9,13 +9,22 @@
     </div> 
    -->
 
-##### 2 -- myview1.html : Ajouter une paper-card dans un <div class="card">
+##### 2 -- myview1.html : Ajouter une paper-card dans un <div class="card"></div>
 
 	bower install --save PolymerElements/paper-input
+
+
+    <paper-input label="saisir une adresse"  value="{{recherche}}"></paper-input>
+    <p>{{recherche}}</p>
+
 
 #### 3 -- myview1.html : Ajouter un <link/>
 
 	<link rel="import" href="../bower_components/paper-input/paper-input.html">
+
+    <link rel="import" href="../bower_components/google-map/google-map.html">
+    <link rel="import" href="../bower_components/google-map/google-map-search.html">
+    <link rel="import" href="../bower_components/google-map/google-map-marker.html">
 
 #### 4
 
@@ -25,10 +34,10 @@
 
  	<google-map-search map="[[map]]" query="{{recherche}}" results="{{results}}"></google-map-search>
 
-    <google-map map="{{map}}" latitude="45.18" longitude="5.73" api-key="AIzaSyCMwoD7JpzLCf5VRKm1J9u8EPXAnTsLEg0">
-      	<template is="dom-repeat" items="{{results}}" as="marker">
-        	<google-map-marker latitude="{{marker.latitude}}" longitude="{{marker.longitude}}">{{marker.name}}</google-map-marker>
-    	</template>
+  <google-map map="{{map}}" latitude="45.18" longitude="5.73" api-key="AIzaSyCMwoD7JpzLCf5VRKm1J9u8EPXAnTsLEg0">
+   	<template is="dom-repeat" items="{{results}}" as="marker">
+     	<google-map-marker latitude="{{marker.latitude}}" longitude="{{marker.longitude}}">{{marker.name}}</google-map-marker>
+   	</template>
 	</google-map> 
 
 
@@ -41,8 +50,8 @@
 ##### 7 --- 
 
 	<template is="dom-repeat" items="{{results}}" as="result">
-        <div class="card" style="max-width:300px; display: inline-block">
-          {{result.name}}<br />
-          {{result.formatted_address}}
-        </div>
-    </template>
+    <div class="card" style="max-width:300px; display: inline-block">
+      {{result.name}}<br />
+      {{result.formatted_address}}
+    </div>
+  </template>
